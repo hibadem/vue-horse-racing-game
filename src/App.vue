@@ -1,47 +1,50 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div :class="$style.container">
+    <Header />
+    <RaceTrack />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <div :class="$style.main">
+      <HorseList />
+      <Program />
+      <Results />
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+    <Modal />
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<script setup>
+import HorseList from './components/HorseList/HorseList.vue'
+import RaceTrack from './components/RaceTrack/RaceTrack.vue'
+import Program from './components/Program/Program.vue'
+import Results from './components/Results/Results.vue'
+import Header from './components/Header/Header.vue'
+import { onMounted, computed } from 'vue'
+import { useStore } from 'vuex'
+import Modal from './components/UI/Modal.vue'
+
+const store = useStore()
+
+onMounted(() => {
+  store.commit('resetSchedule')
+  store.commit('generateHorses')
+})
+</script>
+
+<style module>
+.container {
+  width: 100%;
+  max-width: 100%;
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
+.main {
+  display: grid;
+  max-width: 100%;
+  margin: 0 auto;
+  gap: 8px;
+  grid-template-columns: 1fr 1fr 1fr;
+  @media (max-width: 768px) {
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 12px;
   }
 }
 </style>
