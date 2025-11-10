@@ -66,18 +66,20 @@ const uniqueColors = [
   { name: 'Deep Pink', code: '#FF1493' },
 ]
 
-export default createStore<State>({
-  state: {
-    horses: [],
-    schedule: [],
-    results: [],
-    positions: [],
-    currentRound: 0,
-    isRunning: false,
-    isProgramVisible: false,
-    isModalVisible: false,
-    modalContent: { title: '', desc: '' },
-  },
+const state: State = {
+  horses: [],
+  schedule: [],
+  results: [],
+  positions: [],
+  currentRound: 0,
+  isRunning: false,
+  isProgramVisible: false,
+  isModalVisible: false,
+  modalContent: { title: '', desc: '' },
+}
+
+export default createStore({
+  state,
   getters: {
     raceSchedule: (state: State) => state.schedule,
     raceResults: (state: State) => state.results,

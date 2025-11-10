@@ -16,7 +16,7 @@ describe('Program.vue', () => {
           schedule: [],
         }),
         getters: {
-          raceSchedule: (state) => state.schedule,
+          raceSchedule: (state: any) => state.schedule,
         },
       })
 
@@ -58,7 +58,7 @@ describe('Program.vue', () => {
           schedule: scheduleData,
         }),
         getters: {
-          raceSchedule: (state) => state.schedule,
+          raceSchedule: (state: any) => state.schedule,
         },
       })
 

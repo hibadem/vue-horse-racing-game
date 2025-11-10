@@ -51,7 +51,7 @@ describe('RaceTrack.vue', () => {
 
   it('passes finishLinePos to HorseLane', () => {
     const lanes = wrapper.findAllComponents(HorseLane)
-    lanes.forEach((lane) => {
+    lanes.forEach((lane: any) => {
       expect(lane.props('finishLinePos')).toBe(100)
     })
   })
