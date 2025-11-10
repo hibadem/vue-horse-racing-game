@@ -4,7 +4,7 @@ A fun horse racing game built with **Vue 3, TypeScript, and Vuex 4**.
 
 ## Live Demo
 
-Check out the live game here: [https://your-netlify-link.netlify.app](https://your-netlify-link.netlify.app)
+Check out the live game here: [https://vocal-crumble-3a3534.netlify.app/](https://vocal-crumble-3a3534.netlify.app/)
 
 ## Features
 
